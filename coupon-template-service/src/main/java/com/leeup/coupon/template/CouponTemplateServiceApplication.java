@@ -1,13 +1,13 @@
-package com.leeup.coupon;
+package com.leeup.coupon.calculation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CouponCenterApplication {
+public class CouponTemplateServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CouponCenterApplication.class, args);
+        SpringApplication.run(CouponCalculationServiceApplication.class, args);
     }
 
 }

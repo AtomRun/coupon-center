@@ -1,20 +1,59 @@
-plugins {
-    id 'org.springframework.boot' version '2.6.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+group = 'com.leeup.coupon'
+version = '0.0.1-SNAPSHOT'
+
+ext {
+    /************************* 公共依赖版本 *************************/
+    SPRING_BOOT_VERSION = "2.6.2"
+    SPRING_DEPENDENCY_MANAGEMENT_VERSION = "1.0.11.RELEASE"
 }
 
-group = 'com.leeup'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+
 
 repositories {
-    mavenCentral()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+allprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java-library'
+    version = '1.0'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'  //使用springboot插件
+    apply plugin: 'io.spring.dependency-management'  //版本管理插件
+    apply plugin: 'application'  // 识别mainClassName 插件
+    //如果是多模块项目,需要指定一个程序入口,必须指定,否则无法build,单模块可以不用指定
+//    mainClassName = 'cm.hou.blogweb.BlogWebApplication'
+    // java编译的时候缺省状态下会因为中文字符而失败
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    // 配置所有子模块的依赖仓库地址
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    //所有子模块共有依赖
+    dependencies {
+        // gradle5.0版本以上引入需要这种形式
+        compileOnly 'org.projectlombok:lombok:1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
+        implementation 'org.codehaus.groovy:groovy'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+    dependencyManagement {
+        imports {
+            //springCloud
+        }
+    }
 }
 
 test {

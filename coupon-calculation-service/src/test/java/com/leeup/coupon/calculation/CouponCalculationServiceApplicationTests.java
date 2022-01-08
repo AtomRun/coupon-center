@@ -1,10 +1,10 @@
-package com.leeup.coupon;
+package com.leeup.coupon.calculation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CouponCenterApplicationTests {
+class CouponCalculationServiceApplicationTests {
 
     @Test
     void contextLoads() {
