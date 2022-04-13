@@ -1,0 +1,10 @@
+server:
+  port: 37000
+spring:
+  application:
+    name: template-service
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
