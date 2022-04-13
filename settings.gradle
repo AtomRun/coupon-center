@@ -1,6 +1,4 @@
 rootProject.name = 'coupon-center'
 
-include 'coupon-calculation-service'
-include 'coupon-customer-service'
-include 'coupon-template-service'
+include 'coupon-calculation-service', 'coupon-customer-service', 'coupon-template-service'
 
