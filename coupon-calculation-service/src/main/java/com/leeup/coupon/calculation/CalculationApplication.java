@@ -1,4 +1,5 @@
-import org.springframework.boot.SpringApplication;
+package com.leeup.coupon.calculation;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,9 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @EnableAutoConfiguration
 @SpringBootApplication
-public class CustomerApplication {
+public class CalculationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApplication.class, args);
+        SpringApplication.run(CalculationApplication.class, args);
     }
+
 }
